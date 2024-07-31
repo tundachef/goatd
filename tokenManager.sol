@@ -50,7 +50,7 @@ contract TokenManager is Ownable, ReentrancyGuard {
     event BalanceSet(address indexed setter, address indexed user, uint256 amount);
 
 
-    constructor(address _customToken, address _ipfs, address _usdt, address userAddress) Ownable(userAddress) {
+    constructor(address _customToken, address _ipfs, address _usdt) Ownable(msg.sender) {
         customToken = ECash(_customToken);
         usdt = IERC20(_usdt);
         ipfs = IIPFS(_ipfs);
